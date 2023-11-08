@@ -1,0 +1,70 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Cache directories for virtual environments
+__env__/
+env/
+venv/
+.venv/
+myenv
+private_key
+
+# Editor/IDE-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*~.n~
+*.sublime-workspace
+
+# Python-specific files
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Dependency directories
+lib/
+lib64/
+libs/
+bin/
+include/
+
+# Distribution directories
+dist/
+build/
+egg-info/
+
+# Python egg metadata
+*.egg
+*.egg-info
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+
+# Ignore .env files containing sensitive data
+.env
+
+# .DS_Store files on macOS
+.DS_Store
+
+# Python type checking files
+.pyright/
+
+# Ignore compiled Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE specific settings
+.idea
