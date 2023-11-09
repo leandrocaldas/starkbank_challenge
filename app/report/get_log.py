@@ -1,11 +1,12 @@
 import starkbank
 import time
 
-def get_pix_data_log(created_transfers, pix_quantity):
+
+def get_pix_data_log(created_transfers):
     transfer_ids = [transfer.id for transfer in created_transfers]
     success_failed = []
     iteration = 0
-    while len(success_failed) < pix_quantity and iteration < 4:
+    while len(success_failed) < len(created_transfers) and iteration < 5:
         time.sleep(15)
         success_failed = [
             log for log in starkbank.transfer.log.query(

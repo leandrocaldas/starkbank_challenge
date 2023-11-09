@@ -1,0 +1,46 @@
+image: python:3.11
+
+stages:
+  - daily
+  - every_3_hours
+
+variables:
+  environment: "sandbox"
+  id: "5972207075328000"
+  bank_code: "90400888"
+  branch_code: "8977"
+  account_number: "07218468-4"
+  tax_id: "630.388.220-00"
+  PIX_QTD: '10'
+  PIX_AMOUNT: '10000'
+
+job_daily:
+  stage: daily
+  script:
+    - pip install -r requirements.txt
+    - pytest
+  artifacts:
+    paths:
+      - report_file/
+
+create_pix_every_3h:
+  stage: every_3_hours
+  only:
+    - schedules
+  script:
+    - pip install -r requirements.txt
+    - python main.py
+  artifacts:
+    paths:
+      - report_file/
+
+generate_all_day_report:
+  stage: daily
+  only:
+    - schedules
+  script:
+    - pip install -r requirements.txt
+    - python main.py --function generate_all_day_report
+  artifacts:
+    paths:
+      - report_file/

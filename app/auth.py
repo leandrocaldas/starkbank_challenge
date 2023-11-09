@@ -1,9 +1,9 @@
 import starkbank
 import os
 
-private_key_path = 'private_key/privateKey.pem'
-environment = os.getenv("environment")
-id = os.getenv("id")
+private_key_path = 'app/private_key/privateKey.pem'
+environment = os.getenv("environment", "sandbox")
+id = os.getenv("id", "5972207075328000")
 
 def _read_private_key_file(private_key_path):
     with open(private_key_path, 'r') as file:
@@ -15,7 +15,7 @@ def get_authentication():
         private_key_content = _read_private_key_file(private_key_path)
     else:
         print("The previus privateKey.pem file not found.")
-        private_key, public_key = starkbank.key.create()
+        private_key, _ = starkbank.key.create()
         private_key_content = private_key
     client = starkbank.Project(
         environment=environment,
